@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Meditrack</string>
+
+    <string name="hint_pill">Pill...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Pill not saved because it is empty.</string>
+</resources>
