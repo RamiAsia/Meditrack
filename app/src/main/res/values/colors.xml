@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#388E3C</color>
     <color name="colorAccent">#2196F3</color>
     <color name="colorTextPrimary">@android:color/white</color>
-    <color name="colorScreenBackground">#fff3e0</color>
+    <color name="colorScreenBackground">#FFFFFF</color>
+<!--    <color name="colorScreenBackground">#fff3e0</color>-->
     <color name="colorTextHint">#E0E0E0</color>
 </resources>
