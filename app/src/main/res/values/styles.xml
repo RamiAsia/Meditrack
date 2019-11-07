@@ -5,7 +5,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/fontfamily</item>
     </style>
 
     <style name="text_view_style">
@@ -13,7 +14,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">
             @android:style/TextAppearance.Medium</item>
-        <item name="android:background">@color/colorScreenBackground</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
