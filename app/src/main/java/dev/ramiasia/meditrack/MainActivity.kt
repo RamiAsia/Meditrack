@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         pillViewModel.pills.observe(this, Observer<List<Pill>> {
             pillListAdapter.pills = it
         })
-        pillFab = this.findViewById(R.id.floatingActionButton)
+        pillFab = findViewById(R.id.floatingActionButton)
         pillFab.setOnClickListener {
             val intent = Intent(this, NewPillActivity::class.java)
             startActivityForResult(intent, NEW_PILL_ACTIVITY_REQUEST_CODE)
