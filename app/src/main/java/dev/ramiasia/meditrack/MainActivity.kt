@@ -7,15 +7,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.ramiasia.meditrack.data.entity.Pill
+import dev.ramiasia.meditrack.data.entity.ScheduledPill
 import dev.ramiasia.meditrack.ui.PillListAdapter
 import dev.ramiasia.meditrack.viewmodel.PillViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.time.OffsetDateTime
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var recyclerView : RecyclerView
+    lateinit var cardRecyclerView : RecyclerView
     lateinit var pillListAdapter : PillListAdapter
     lateinit var pillViewModel: PillViewModel
     lateinit var pillFab : FloatingActionButton
@@ -26,14 +27,14 @@ class MainActivity : AppCompatActivity() {
         init()
     }
 
-    fun init() {
-        recyclerView = findViewById(R.id.recyclerview)
+    private fun init() {
+        cardRecyclerView = findViewById(R.id.recyclerview)
         pillListAdapter = PillListAdapter(this)
-        recyclerView.adapter = pillListAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        cardRecyclerView.adapter = pillListAdapter
+        cardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         pillViewModel = ViewModelProviders.of(this).get(PillViewModel::class.java)
-        pillViewModel.pills.observe(this, Observer<List<Pill>> {
-            pillListAdapter.pills = it
+        pillViewModel.pills.observe(this, Observer<List<ScheduledPill>> {
+            pillListAdapter.scheduledPills = it
         })
         pillFab = findViewById(R.id.floatingActionButton)
         pillFab.setOnClickListener {
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         println("Request code is ${requestCode} and result is ${resultCode}")
         if (requestCode == NEW_PILL_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            val pill = Pill(name = data?.getStringExtra(NewPillActivity.EXTRA_REPLY))
+            val pill = ScheduledPill(name = data?.getStringExtra(NewPillActivity.EXTRA_REPLY), time = OffsetDateTime.now())
             pillViewModel.insert(pill)
             println("Inserted pill")
         }

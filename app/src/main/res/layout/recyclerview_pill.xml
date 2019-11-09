@@ -28,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="16dp"
                 android:contentDescription="Card icon"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
@@ -44,7 +44,7 @@
                 android:layout_width="275dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:gravity="center_vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

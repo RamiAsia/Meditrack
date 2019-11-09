@@ -1,12 +1,14 @@
 package dev.ramiasia.meditrack.data
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import dev.ramiasia.meditrack.data.entity.Pill
+import androidx.room.*
+import dev.ramiasia.meditrack.data.entity.MedicationSchedule
+import dev.ramiasia.meditrack.data.entity.ScheduledPill
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 
-@Database(entities = arrayOf(Pill::class), version = 1, exportSchema = true)
+@Database(entities = arrayOf(ScheduledPill::class, MedicationSchedule::class), version = 1, exportSchema = true)
+@TypeConverters(OffsetDateTimeConverters::class)
 abstract class MeditrackRoomDatabase : RoomDatabase() {
 
     abstract fun pillDao(): PillDao
@@ -24,5 +26,23 @@ abstract class MeditrackRoomDatabase : RoomDatabase() {
             Room.databaseBuilder(context, MeditrackRoomDatabase::class.java, "meditrack.db")
                 .fallbackToDestructiveMigration()
                 .build()
+    }
+}
+
+object OffsetDateTimeConverters {
+    private val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
+
+    @TypeConverter
+    @JvmStatic
+    fun toOffsetDateTime(value: String?) : OffsetDateTime? {
+        return value?.let {
+            return formatter.parse(it, OffsetDateTime::from)
+        }
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromOffsetDateTime(value: OffsetDateTime?) : String? {
+        return value?.format(formatter)
     }
 }

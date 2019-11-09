@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import dev.ramiasia.meditrack.R
-import dev.ramiasia.meditrack.data.entity.Pill
+import dev.ramiasia.meditrack.data.entity.ScheduledPill
 import android.view.ViewGroup
 
 
@@ -14,7 +14,7 @@ import android.view.ViewGroup
 class PillListAdapter(context: Context) : RecyclerView.Adapter<PillListAdapter.PillViewHolder>() {
 
     private val inflater : LayoutInflater = LayoutInflater.from(context)
-    var pills : List<Pill> = ArrayList()
+    var scheduledPills : List<ScheduledPill> = ArrayList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -26,19 +26,19 @@ class PillListAdapter(context: Context) : RecyclerView.Adapter<PillListAdapter.P
     }
 
     override fun onBindViewHolder(holder: PillViewHolder, position: Int) {
-        if (pills.isNullOrEmpty()) {
-            holder.pillItemView.text = "No pills taken"
+        if (scheduledPills.isNullOrEmpty()) {
+            holder.pillItemView.text = "No scheduledPills taken"
         } else {
-            var pill = pills[position]
+            var pill = scheduledPills[position]
             holder.pillItemView.text = pill.name
         }
     }
 
     override fun getItemCount(): Int {
-        if (pills.isNullOrEmpty()) {
+        if (scheduledPills.isNullOrEmpty()) {
             return 0
         }
-        return pills.size
+        return scheduledPills.size
     }
 
 

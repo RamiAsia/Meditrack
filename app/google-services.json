@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "446793836345",
+    "firebase_url": "https://meditrack-ddb38.firebaseio.com",
+    "project_id": "meditrack-ddb38",
+    "storage_bucket": "meditrack-ddb38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446793836345:android:b030ba7d66f4828e21eae8",
+        "android_client_info": {
+          "package_name": "dev.ramiasia.meditrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446793836345-tk423c1jbroa69jmjgfqecsjhi6ivlps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.ramiasia.meditrack",
+            "certificate_hash": "435271732c8ce2f3fa2a9613beca79369a32e1f2"
+          }
+        },
+        {
+          "client_id": "446793836345-dmu15v2hrsb7iidhagh7inpnqjjt364e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDptAln0FwvjdAzJ3y3m4sKVMs8bxA7lGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446793836345-dmu15v2hrsb7iidhagh7inpnqjjt364e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
