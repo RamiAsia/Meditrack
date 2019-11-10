@@ -8,7 +8,7 @@ import androidx.room.Query
 import dev.ramiasia.meditrack.data.entity.ScheduledPill
 
 @Dao
-interface PillDao {
+interface MetricDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(scheduledPill: ScheduledPill) : Long
 
