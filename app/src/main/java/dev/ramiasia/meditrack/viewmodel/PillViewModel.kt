@@ -3,11 +3,11 @@ package dev.ramiasia.meditrack.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import dev.ramiasia.meditrack.data.entity.PillIngestion
-import dev.ramiasia.meditrack.repo.PillRepository
+import dev.ramiasia.meditrack.repo.MetricRepository
 
 class PillViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var pillRepository = PillRepository(application)
+    private var pillRepository = MetricRepository(application)
     var pills = pillRepository.pills
         private set
 
