@@ -9,11 +9,10 @@ import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
 @Entity(tableName = "pill_table")
-data class ScheduledPill(
+data class PillIngestion(
     @PrimaryKey(autoGenerate = true)
     @NonNull
     val pillId: Long = 0,
     val name: String?,
-    val taken: Boolean? = false,
     val time: OffsetDateTime?
 )

@@ -4,14 +4,14 @@ import android.content.Context
 import androidx.room.*
 import dev.ramiasia.meditrack.data.entity.BloodPressure
 import dev.ramiasia.meditrack.data.entity.HeartRate
-import dev.ramiasia.meditrack.data.entity.MedicationSchedule
-import dev.ramiasia.meditrack.data.entity.ScheduledPill
+import dev.ramiasia.meditrack.data.entity.ScheduledMedication
+import dev.ramiasia.meditrack.data.entity.PillIngestion
 import dev.ramiasia.meditrack.util.DataTypeConverter
 
 @Database(
     entities = arrayOf(
-        ScheduledPill::class,
-        MedicationSchedule::class,
+        PillIngestion::class,
+        ScheduledMedication::class,
         BloodPressure::class,
         HeartRate::class
     ), version = 1, exportSchema = true

@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.ramiasia.meditrack.data.entity.ScheduledPill
+import dev.ramiasia.meditrack.data.entity.PillIngestion
 import dev.ramiasia.meditrack.ui.PillListAdapter
 import dev.ramiasia.meditrack.viewmodel.PillViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         cardRecyclerView.adapter = pillListAdapter
         cardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         pillViewModel = ViewModelProviders.of(this).get(PillViewModel::class.java)
-        pillViewModel.pills.observe(this, Observer<List<ScheduledPill>> {
-            pillListAdapter.scheduledPills = it
+        pillViewModel.pills.observe(this, Observer<List<PillIngestion>> {
+            pillListAdapter.pillIngestions = it
         })
         pillFab = findViewById(R.id.floatingActionButton)
         pillFab.setOnClickListener {
@@ -48,7 +48,10 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         println("Request code is ${requestCode} and result is ${resultCode}")
         if (requestCode == NEW_PILL_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            val pill = ScheduledPill(name = data?.getStringExtra(NewPillActivity.EXTRA_REPLY), time = OffsetDateTime.now())
+            val pill = PillIngestion(
+                name = data?.getStringExtra(NewPillActivity.EXTRA_REPLY),
+                time = OffsetDateTime.now()
+            )
             pillViewModel.insert(pill)
             println("Inserted pill")
         }

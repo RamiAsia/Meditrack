@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.time.OffsetDateTime
 
-@Entity(tableName = "med_schedule")
-class MedicationSchedule (
+@Entity(tableName = "scheduled_medication")
+class ScheduledMedication(
     @PrimaryKey(autoGenerate = true)
     @NonNull
     val id: Long = 0,
