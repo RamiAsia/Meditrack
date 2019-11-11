@@ -16,10 +16,10 @@ import java.time.OffsetDateTime
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var cardRecyclerView : RecyclerView
-    lateinit var pillListAdapter : PillListAdapter
-    lateinit var pillViewModel: PillViewModel
-    lateinit var pillFab : FloatingActionButton
+    private lateinit var cardRecyclerView: RecyclerView
+    private lateinit var pillListAdapter: PillListAdapter
+    private lateinit var pillViewModel: PillViewModel
+    private lateinit var pillFab: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        println("Request code is ${requestCode} and result is ${resultCode}")
+        println("Request code is $requestCode and result is $resultCode")
         if (requestCode == NEW_PILL_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             val pill = PillIngestion(
                 name = data?.getStringExtra(NewPillActivity.EXTRA_REPLY),

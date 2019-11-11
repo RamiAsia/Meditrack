@@ -9,8 +9,8 @@ import android.widget.EditText
 
 class NewPillActivity : AppCompatActivity() {
 
-    lateinit var editPillView : EditText
-    lateinit var saveButton: Button
+    private lateinit var editPillView: EditText
+    private lateinit var saveButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +18,7 @@ class NewPillActivity : AppCompatActivity() {
         init()
     }
 
-    fun init() {
+    private fun init() {
         editPillView = findViewById(R.id.edit_pill)
         saveButton = findViewById(R.id.button_save)
         saveButton.setOnClickListener {
@@ -33,6 +33,6 @@ class NewPillActivity : AppCompatActivity() {
     }
 
     companion object {
-        val EXTRA_REPLY = "com.example.android.roompillssample.REPLY";
+        const val EXTRA_REPLY = "com.example.android.roompillssample.REPLY"
     }
 }

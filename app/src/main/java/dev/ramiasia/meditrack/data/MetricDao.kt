@@ -45,7 +45,7 @@ interface MetricDao {
 
     //Heart rate
     @Query("SELECT * FROM heart_rate ORDER BY id ASC")
-    fun getAllHeartRateRecords(): LiveData<List<BloodPressure>>
+    fun getAllHeartRateRecords(): LiveData<List<HeartRate>>
 
     @Delete
     fun deleteHeartRate(heartRate: HeartRate)

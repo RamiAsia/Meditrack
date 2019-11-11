@@ -9,12 +9,12 @@ import dev.ramiasia.meditrack.data.entity.PillIngestion
 import dev.ramiasia.meditrack.util.DataTypeConverter
 
 @Database(
-    entities = arrayOf(
+    entities = [
         PillIngestion::class,
         ScheduledMedication::class,
         BloodPressure::class,
         HeartRate::class
-    ), version = 1, exportSchema = true
+    ], version = 2, exportSchema = true
 )
 @TypeConverters(DataTypeConverter::class)
 abstract class MeditrackRoomDatabase : RoomDatabase() {
