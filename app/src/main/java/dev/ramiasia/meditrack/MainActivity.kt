@@ -1,16 +1,16 @@
 package dev.ramiasia.meditrack
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.ramiasia.meditrack.data.entity.PillIngestion
 import dev.ramiasia.meditrack.ui.PillListAdapter
 import dev.ramiasia.meditrack.viewmodel.PillViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.OffsetDateTime
 
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        cardRecyclerView = findViewById(R.id.recyclerview)
+        cardRecyclerView = findViewById(R.id.cardRecyclerView)
         pillListAdapter = PillListAdapter(this)
         cardRecyclerView.adapter = pillListAdapter
         cardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == NEW_PILL_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             val pill = PillIngestion(
                 name = data?.getStringExtra(NewPillActivity.EXTRA_REPLY),
-                time = OffsetDateTime.now()
+                time = OffsetDateTime.now(),
+                taken = true
             )
             pillViewModel.insert(pill)
             println("Inserted pill")

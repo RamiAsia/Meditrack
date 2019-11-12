@@ -11,5 +11,6 @@ data class PillIngestion(
     @NonNull
     val pillId: Long = 0,
     val name: String?,
-    val time: OffsetDateTime?
+    val time: OffsetDateTime?,
+    val taken: Boolean
 )

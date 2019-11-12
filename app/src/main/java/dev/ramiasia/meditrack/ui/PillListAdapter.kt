@@ -3,12 +3,11 @@ package dev.ramiasia.meditrack.ui
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import dev.ramiasia.meditrack.R
 import dev.ramiasia.meditrack.data.entity.PillIngestion
-import android.view.ViewGroup
-
 
 
 class PillListAdapter(context: Context) : RecyclerView.Adapter<PillListAdapter.PillViewHolder>() {
@@ -21,7 +20,7 @@ class PillListAdapter(context: Context) : RecyclerView.Adapter<PillListAdapter.P
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PillViewHolder {
-        val pillView = inflater.inflate(R.layout.recyclerview_pill, parent, false)
+        val pillView = inflater.inflate(R.layout.recycler_view_card, parent, false)
         return PillViewHolder(pillView)
     }
 
