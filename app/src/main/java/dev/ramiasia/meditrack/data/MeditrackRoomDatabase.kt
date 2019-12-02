@@ -1,11 +1,14 @@
 package dev.ramiasia.meditrack.data
 
 import android.content.Context
-import androidx.room.*
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import dev.ramiasia.meditrack.data.entity.BloodPressure
 import dev.ramiasia.meditrack.data.entity.HeartRate
-import dev.ramiasia.meditrack.data.entity.ScheduledMedication
 import dev.ramiasia.meditrack.data.entity.PillIngestion
+import dev.ramiasia.meditrack.data.entity.ScheduledMedication
 import dev.ramiasia.meditrack.util.DataTypeConverter
 
 @Database(
@@ -14,7 +17,7 @@ import dev.ramiasia.meditrack.util.DataTypeConverter
         ScheduledMedication::class,
         BloodPressure::class,
         HeartRate::class
-    ], version = 2, exportSchema = true
+    ], version = 3, exportSchema = true
 )
 @TypeConverters(DataTypeConverter::class)
 abstract class MeditrackRoomDatabase : RoomDatabase() {

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.ramiasia.meditrack.data.entity.PillIngestion
-import dev.ramiasia.meditrack.ui.PillListAdapter
+import dev.ramiasia.meditrack.ui.CardListAdapter
 import dev.ramiasia.meditrack.viewmodel.PillViewModel
 import java.time.OffsetDateTime
 
@@ -17,7 +17,10 @@ import java.time.OffsetDateTime
 class MainActivity : AppCompatActivity() {
 
     private lateinit var cardRecyclerView: RecyclerView
-    private lateinit var pillListAdapter: PillListAdapter
+    private lateinit var pillRecyclerView: RecyclerView
+    private lateinit var cardListAdapter: CardListAdapter
+    private lateinit var pillListAdapter: CardListAdapter
+    private lateinit var cardViewModel: PillViewModel
     private lateinit var pillViewModel: PillViewModel
     private lateinit var pillFab: FloatingActionButton
 
@@ -29,12 +32,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun init() {
         cardRecyclerView = findViewById(R.id.cardRecyclerView)
-        pillListAdapter = PillListAdapter(this)
-        cardRecyclerView.adapter = pillListAdapter
+        cardListAdapter = CardListAdapter(this)
+        cardRecyclerView.adapter = cardListAdapter
         cardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        pillViewModel = ViewModelProviders.of(this).get(PillViewModel::class.java)
-        pillViewModel.pills.observe(this, Observer<List<PillIngestion>> {
-            pillListAdapter.pillIngestions = it
+        cardViewModel = ViewModelProviders.of(this).get(PillViewModel::class.java)
+        cardViewModel.pills.observe(this, Observer<List<PillIngestion>> {
+            cardListAdapter.pillIngestions = it
         })
         pillFab = findViewById(R.id.floatingActionButton)
         pillFab.setOnClickListener {
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 time = OffsetDateTime.now(),
                 taken = true
             )
-            pillViewModel.insert(pill)
+            cardViewModel.insert(pill)
             println("Inserted pill")
         }
     }
